@@ -14,8 +14,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <tycho.version>${tycho_version}</tycho.version>
-    <tycho.extras.version>${tycho_version}</tycho.extras.version>
+    <tycho.version>3.0.1</tycho.version>
     <tycho.test.platformArgs></tycho.test.platformArgs>
 #if ($java_version == "1.6" || $java_version == "1.7")
     <tycho.test.jvmArgs>-Xmx512m -XX:MaxPermSize=256m ${tycho.test.platformArgs}</tycho.test.jvmArgs>
@@ -23,7 +22,7 @@
     <tycho.test.jvmArgs>-Xmx512m ${tycho.test.platformArgs}</tycho.test.jvmArgs>
 #end
 #if ($signing_support == "true" || $signing_support == "y" || $signing_support == "yes" )
-    <jarsigner.version>1.4</jarsigner.version>
+    <jarsigner.version>3.0.0</jarsigner.version>
 #end
 
   </properties>
@@ -112,20 +111,6 @@
       <build>
         <plugins>
           <plugin>
-            <groupId>org.eclipse.tycho.extras</groupId>
-            <artifactId>tycho-source-feature-plugin</artifactId>
-            <version>${symbol_dollar}{tycho.extras.version}</version>
-            <executions>
-              <execution>
-                <id>source-feature</id>
-                <phase>package</phase>
-                <goals>
-                  <goal>source-feature</goal>
-                </goals>
-              </execution>
-            </executions>
-          </plugin>
-          <plugin>
             <groupId>org.eclipse.tycho</groupId>
             <artifactId>tycho-p2-plugin</artifactId>
             <version>${symbol_dollar}{tycho.version}</version>
@@ -157,21 +142,6 @@
           </plugin>
 
           <plugin>
-            <groupId>org.eclipse.tycho.extras</groupId>
-            <artifactId>tycho-pack200a-plugin</artifactId>
-            <version>${symbol_dollar}{tycho.extras.version}</version>
-            <executions>
-              <execution>
-                <id>pack200-normalize</id>
-                <goals>
-                  <goal>normalize</goal>
-                </goals>
-                <phase>verify</phase>
-              </execution>
-            </executions>
-          </plugin>
-
-          <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-jarsigner-plugin</artifactId>
             <version>${jarsigner.version}</version>
@@ -192,21 +162,6 @@
                 <goals>
                   <goal>sign</goal>
                 </goals>
-              </execution>
-            </executions>
-          </plugin>
-
-          <plugin>
-            <groupId>org.eclipse.tycho.extras</groupId>
-            <artifactId>tycho-pack200b-plugin</artifactId>
-            <version>${symbol_dollar}{tycho.extras.version}</version>
-            <executions>
-              <execution>
-                <id>pack200-pack</id>
-                <goals>
-                  <goal>pack</goal>
-                </goals>
-                <phase>verify</phase>
               </execution>
             </executions>
           </plugin>
