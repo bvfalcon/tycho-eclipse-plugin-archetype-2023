@@ -16,23 +16,8 @@ and the m2eclipse-tycho plugin (https://github.com/tesla/m2eclipse-tycho/). Upda
 
 #if ($signing_support == "true" || $signing_support == "y" || $signing_support == "yes" )
 
-Signed artifacts will be created when the `sign` profile is used.
+Signing artifacts with PGP signature is possible with profile `sign`.
 
     mvn package -Psign
 
-In order to sign artifacts, you will need to generate/provide a keystore first (see http://docs.oracle.com/javase/6/docs/technotes/tools/solaris/jarsigner.html) and configure your settings.xml like :
-
-```
-  <profiles>
-    <profile>
-    <id>sign</id>
-      <properties>
-        <sign.keystore>~/.ssh/sample.keystore</sign.keystore>
-        <sign.alias>sample</sign.alias>
-        <sign.storepass>samplepass</sign.storepass>
-        <sign.keypass>samplepass</sign.keypass>
-      </properties>
-    </profile>
-  </profiles>
-```
 #end
