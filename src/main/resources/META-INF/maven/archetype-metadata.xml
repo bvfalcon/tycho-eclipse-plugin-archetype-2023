@@ -2,13 +2,13 @@
 <archetype-descriptor name="eclipse.plugin.archetype">
   <requiredProperties>
     <requiredProperty key="tycho_version">
-      <defaultValue>2.1.0</defaultValue>
+      <defaultValue>3.0.1</defaultValue>
     </requiredProperty>
     <requiredProperty key="java_version">
-      <defaultValue>11</defaultValue>
+      <defaultValue>17</defaultValue>
     </requiredProperty>
     <requiredProperty key="eclipse_platform">
-      <defaultValue>2020-12</defaultValue>
+      <defaultValue>2022-12</defaultValue>
     </requiredProperty>
     <requiredProperty key="signing_support">
       <defaultValue>false</defaultValue>
